@@ -10,14 +10,12 @@ I created this to help with the Morse code puzzle from the Battlefield 4 Dragon 
 
 ### Usage
 
-`video-morse-decode <video_filename> <start_frame> <end_frame> <x0> <y0> <x1> <y1>`
+    video-morse-decode <video_filename> <start_frame> <end_frame> <x0> <y0> <x1> <y1>`
 
 ### Example
 
-`
-youtube-dl https://www.youtube.com/watch?v=... --output video.mp4
-./video-morse-decode video.mp4 - 0 -1 0.4 0.4 0.6 0.6
-`
+    youtube-dl https://www.youtube.com/watch?v=... --output video.mp4
+    ./video-morse-decode video.mp4 - 0 -1 0.4 0.4 0.6 0.6
 
 The parameters `0.4 0.4 0.6 0.6` represent the coordinates (0.4,0.4)-(0.6,0.6) and here specify the center 20% of the frame
 
@@ -33,7 +31,6 @@ The coordinates are represented where (0,0) is top-left, and (1,1) is bottom-rig
 
 ### Compile
 
-    g++ -O2 -std=c++14 $(pkg-config --cflags-only-I libavcodec) \
-    -o video-morse-decode video-morse-decode.cpp \
-    $(pkg-config --libs-only-l libavcodec libavutil \
-    libavfilter libavformat libswscale) -lm
+`make` using provided Makefile.
+
+(C++14 compiler and FFmpeg libraries and headers are required)
