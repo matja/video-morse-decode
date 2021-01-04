@@ -595,7 +595,7 @@ bool VideoMorseDecode::run()
 		return false;
 	}
 
-	frame_bytes = avpicture_get_size(PIX_FMT_RGB24,
+	frame_bytes = avpicture_get_size(AV_PIX_FMT_RGB24,
 		codec_context->width, codec_context->height);
 	buffer = (uint8_t *)av_malloc(frame_bytes * sizeof(uint8_t));
 
@@ -604,11 +604,11 @@ bool VideoMorseDecode::run()
 		codec_context->width, codec_context->height,
 		codec_context->pix_fmt,
 		codec_context->width, codec_context->height,
-		PIX_FMT_RGB24, SWS_BILINEAR,
+		AV_PIX_FMT_RGB24, SWS_BILINEAR,
 		NULL, NULL, NULL
 	);
 
-	avpicture_fill((AVPicture *)frame_rgb, buffer, PIX_FMT_RGB24,
+	avpicture_fill((AVPicture *)frame_rgb, buffer, AV_PIX_FMT_RGB24,
 		codec_context->width, codec_context->height);
 
 	frame_index = 0;
